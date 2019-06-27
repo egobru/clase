@@ -7,8 +7,6 @@ import { environment } from 'src/environments/environment';
   styles: []
 })
 export class HomeComponent implements OnInit {
-  numProyectos = environment.proyectos.length;
-  partidos = environment.partidos;
 
   constructor() { }
 

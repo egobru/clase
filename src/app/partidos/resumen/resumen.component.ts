@@ -8,7 +8,7 @@ import { environment } from 'src/environments/environment';
 })
 export class ResumenComponent implements OnInit {
 
-  numProyectos = environment.proyectos.length;
+
   partidos = environment.partidos;
 
   constructor() { }

@@ -7,7 +7,7 @@ import { environment } from 'src/environments/environment';
   styles: []
 })
 export class ProjectsComponent implements OnInit {
-
+  numProyectos = environment.proyectos.length;
   listaProy: any[] = environment.proyectos; // any, pq el array de proyectos tiene de varios tipos sus propiedades (id, name)
 
   constructor() { }

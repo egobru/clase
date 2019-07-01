@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { environment } from 'src/environments/environment';
+import { Suceso } from '../model/suceso';
+import { Partido } from '../model/partido';
 
 @Component({
   selector: 'app-partido-form',
@@ -10,6 +12,9 @@ import { environment } from 'src/environments/environment';
 export class PartidoFormComponent implements OnInit {
   partido: Partido;
   alertClick = () => this.partido.local += '*';
+  golLocal: string;
+  golVisitante: string;
+  sucesos: any;
 
   constructor(activateRoute: ActivatedRoute) {
     const id = activateRoute.snapshot.params.id;
@@ -32,10 +37,14 @@ export class PartidoFormComponent implements OnInit {
       tarjetaAmarillaVisitante: tarjetaAmarilla.filter(ta => ta.idParticipante === p.idVisitante).length,
       tarjetaRojaLocal: tarjetaRoja.filter(tr => tr.idParticipante === p.idLocal).length,
       tarjetaRojaVisitante: tarjetaRoja.filter(tr => tr.idParticipante === p.idVisitante).length,
+      getResultado() {
+        return this.golLocal + ' --- ' + this.golVisitante;
+      }
     };
 
     // Podría hacerme los partidos dinámicamente cogiendo sólo el id
     // this.partido = {id: id, local:'A', visitante:'b'};
+
    }
 
   ngOnInit() {
@@ -43,23 +52,6 @@ export class PartidoFormComponent implements OnInit {
 
 }
 
-export interface Partido {
-  local: string;
-  visitante: string;
-  golLocal: number;
-  golVisitante: number;
-  fecha: number;
-  tarjetaLocal: number;
-  tarjetaVisitante: number;
-  tarjetaAmarillaLocal: number;
-  tarjetaAmarillaVisitante: number;
-  tarjetaRojaLocal: number;
-  tarjetaRojaVisitante: number;
-  // getResultado: () => string;
-}
 
-export interface Suceso {
-  class: string;
-  idParticipante: string;
-  tipoTarjeta?: number | string;
-}
+
+

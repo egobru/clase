@@ -1,29 +1,32 @@
-<div class="container">
+<div class="text-center font-weight-bold">
+  <span>{{ partido.fecha | date: 'full' : 'GMT+1' }}</span>
+</div>
+
 <form>
-  <div class="text-info"> Fecha del partido: {{ partido.fecha | date }} </div>
-  <div class="form-group" [ngClass]="{'text-danger': partido.golLocal < 1}">
-    <label for="local">Local</label>
-    <input  type="text"
-            class="form-control"
-            id="local"
-            placeholder="Equipo local"
-            [(ngModel)]="partido.local"
-            [ngModelOptions]="{standalone: true}">
-  </div>
-  <div [ngClass]="{'form-group': true, 'text-danger': partido.golVisitante < 1}">
-    <label for="visitante">Visitante</label>
-    <input  type="text"
-            class="form-control"
-            id="visitante"
-            placeholder="Equipo visitante"
-            [(ngModel)]="partido.visitante"
-            [ngModelOptions]="{standalone: true}"
-            (click)="alertClick()">
-  </div>
-  <div>
-    <input type="text" class="form-group" id="resultado" [value]="partido.getResultado()">
-  </div>
+  <div class="row">
+    <div class="form-group col-5" [ngClass]="{'text-danger': partido.golLocal < 1}">
+      <input type="text" class="form-control" id="local" placeholder="Equipo local" [(ngModel)]="partido.local" [ngModelOptions]="{standalone: true}">
+    </div>
+    <div class="form-group col-2">
+        <input type="text" class="form-control-plaintext text-center" id="resultado" [value]="partido.getResultado()" readonly>
 
+    </div>
+    <div [ngClass]="{'form-group col-5': true, 'text-danger': partido.golVisitante < 1}">
+      <input (click)="alertClick()" type="text" class="form-control" id="visitante" placeholder="Equipo visitante" [(ngModel)]="partido.visitante" [ngModelOptions]="{standalone: true}">
+    </div>
+  </div>
 </form>
+<section *ngIf="getTarjetas(partido).length > 0; else resumen">
+  <div class="text-center">
+    <span *ngFor="let suceso of getTarjetas(partido)" class="mr-3 p-0 px-1" [ngClass]="{ 'bg-danger text-white': suceso.tipoTarjeta == 1, 'bg-warning': suceso.tipoTarjeta == 2 }">
+        {{ suceso.idParticipante.slice(0,3) | lowercase }}
+    </span>
+  </div>
+</section>
+<ng-template #resumen>
+    <div class="mx-auto text-center">El partido finalizó sin sanciones</div>
+</ng-template>
 
-<pre>{{partido | json }}</pre>
+
+<pre>{{ partido | json }}</pre>
+

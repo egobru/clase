@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  appName: 'Datos Deportivos de Quique',
+  titulo: 'Datos Deportivos (v 0.0.1)',
+  appName: 'Página de Quique',
   logo: 'LanyuCirculoRelleno.svg',
   marca: 'Lanyu EStudio',
   proyectos: [
@@ -14,19 +15,23 @@ export const environment = {
     {id: 3, name: 'Contratar un sicario'}
   ],
   partidos: [
-
+// tslint:disable-next-line: max-line-length
 {id: 1,
   idLocal: 'WESHAM(ING)', idVisitante: 'BRIGHT(ING)', idCompeticion: 'ING-D1',
-  sucesos: [{class: 'Gol', idParticipante: 'BRIGHT(ING)'}, {class: 'Gol', idParticipante: 'BRIGHT(ING)'}, {class: 'Gol', idParticipante: 'BRIGHT(ING)'}, {class: 'Tarjeta', tipoTarjeta: 2, idParticipante: 'WESHAM(ING)'}],
+// tslint:disable-next-line: max-line-length
+sucesos: [{class: 'Gol', idParticipante: 'BRIGHT(ING)'}, {class: 'Gol', idParticipante: 'BRIGHT(ING)'}, {class: 'Gol', idParticipante: 'BRIGHT(ING)'}, {class: 'Tarjeta', tipoTarjeta: 2, idParticipante: 'WESHAM(ING)'}],
   timeStamp: 1508526000000
 },
 {id: 2,
   idLocal: 'OSASUN(ESP)', idVisitante: 'BARCAB(ESP)', idCompeticion: 'ESP-D2',
+// tslint:disable-next-line: whitespace
+// tslint:disable-next-line: max-line-length
   sucesos: [{class: 'Gol', idParticipante: 'OSASUN(ESP)'}, {class: 'Gol', idParticipante: 'OSASUN(ESP)'}, {class: 'Gol', idParticipante: 'BARCAB(ESP)'}, {class: 'Gol', idParticipante: 'BARCAB(ESP)'}, {class: 'Tarjeta', tipoTarjeta: 1, idParticipante: 'OSASUN(ESP)'}],
   timeStamp: 1508526000000
 },
 {id: 3,
   idLocal: 'SETIEN(FRA)', idVisitante: 'MONTPE(FRA)', idCompeticion: 'FRA-D1',
+// tslint:disable-next-line: max-line-length
 sucesos: [{class: 'Gol', idParticipante: 'SETIEN(FRA)'}, {class: 'Tarjeta', tipoTarjeta: 2, idParticipante: 'SETIEN(FRA)'}, {class: 'Tarjeta', tipoTarjeta: 1, idParticipante: 'SETIEN(FRA)'}, {class: 'Tarjeta', tipoTarjeta: 2, idParticipante: 'MONTPE(FRA)'}, {class: 'Tarjeta', tipoTarjeta: 2, idParticipante: 'MONTPE(FRA)'}, {class: 'Tarjeta', tipoTarjeta: 2, idParticipante: 'MONTPE(FRA)'}],
 timeStamp: 1508525100000}
 ]
